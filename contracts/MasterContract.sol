@@ -24,6 +24,11 @@ contract MasterContract {
         user.ipfsHash = _ipfsHash;
     }
 
+    function updateIpfsHash(string calldata _username,string calldata _ipfsHash) public{
+        User storage user = users[userAddresses[_username]];
+        user.ipfsHash = _ipfsHash;
+    }
+
     function getIpfsHash(string calldata _username) public view returns(string memory){
         return users[userAddresses[_username]].ipfsHash;
     }
